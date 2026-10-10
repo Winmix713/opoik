@@ -55,7 +55,6 @@ const transitionLabel: Record<string, string> = {
 const formatNumber = (value: number) => new Intl.NumberFormat("hu-HU").format(value);
 const formatRate = (value: number) => `${(value * 100).toLocaleString("hu-HU", { maximumFractionDigits: 1 })}%`;
 const formatBytes = (value: number) => `${(value / 1_000_000).toLocaleString("hu-HU", { maximumFractionDigits: 1 })} MB`;
-const pairId = (league: League, home: string, away: string) => `${league}\u241f${home}\u241f${away}`;
 const outcomeName = (key: string) => transitionLabel[key] ?? key;
 const scoreTransition = (value: string) => value.replace(">", "  →  ").replaceAll("-", "–");
 
@@ -285,22 +284,35 @@ function Overview({ report, league, setLeague, onOpenPairs }: {
   );
 }
 
-function PairExplorer({ report, league, setLeague, selectedPairId, setSelectedPairId }: {
+function PairExplorer({ report, league, setLeague }: {
   report: AuditReport;
   league: LeagueFilter;
   setLeague: (value: LeagueFilter) => void;
-  selectedPairId: string;
-  setSelectedPairId: (value: string) => void;
 }) {
-  const [query, setQuery] = useState("");
+  const [homeSelection, setHomeSelection] = useState("");
+  const [awaySelection, setAwaySelection] = useState("");
   const [seasonFilter, setSeasonFilter] = useState("mind");
   const [roundFilter, setRoundFilter] = useState("mind");
   const [tableSearch, setTableSearch] = useState("");
-  const pairs = useMemo(() => report.pairs
-    .filter((pair) => league === "mindkettő" || pair.league === league)
-    .filter((pair) => `${pair.homeTeam} ${pair.awayTeam}`.toLocaleLowerCase("hu").includes(query.toLocaleLowerCase("hu"))), [report.pairs, league, query]);
-  const selectedPair = report.pairs.find((pair) => pairId(pair.league, pair.homeTeam, pair.awayTeam) === selectedPairId)
-    ?? pairs[0] ?? null;
+
+  const teamOptions = useMemo(() => {
+    const teams = new Map<string, { league: League; name: string }>();
+    for (const match of report.matches) {
+      if (league !== "mindkettő" && match.league !== league) continue;
+      teams.set(JSON.stringify([match.league, match.homeTeam]), { league: match.league, name: match.homeTeam });
+      teams.set(JSON.stringify([match.league, match.awayTeam]), { league: match.league, name: match.awayTeam });
+    }
+    return [...teams.values()].sort((a, b) => a.name.localeCompare(b.name, "hu") || a.league.localeCompare(b.league, "hu"));
+  }, [report.matches, league]);
+  const teamValue = (team: { league: League; name: string }) => JSON.stringify([team.league, team.name]);
+  const selectedHome = teamOptions.find((team) => teamValue(team) === homeSelection) ?? null;
+  const awayOptions = selectedHome
+    ? teamOptions.filter((team) => team.league === selectedHome.league && team.name !== selectedHome.name)
+    : [];
+  const selectedAway = awayOptions.find((team) => teamValue(team) === awaySelection) ?? null;
+  const selectedPair = selectedHome && selectedAway
+    ? report.pairs.find((pair) => pair.league === selectedHome.league && pair.homeTeam === selectedHome.name && pair.awayTeam === selectedAway.name) ?? null
+    : null;
   const occurrences = useMemo(() => selectedPair ? report.matches
     .filter((match) => match.league === selectedPair.league && match.homeTeam === selectedPair.homeTeam && match.awayTeam === selectedPair.awayTeam)
     .filter((match) => seasonFilter === "mind" || String(match.seasonIndex) === seasonFilter)
@@ -308,37 +320,20 @@ function PairExplorer({ report, league, setLeague, selectedPairId, setSelectedPa
     .filter((match) => !tableSearch || `${match.seasonName} ${match.matchPosition}`.toLocaleLowerCase("hu").includes(tableSearch.toLocaleLowerCase("hu")))
     .sort((a, b) => a.seasonIndex - b.seasonIndex || a.matchPosition - b.matchPosition) : [], [report.matches, selectedPair, seasonFilter, roundFilter, tableSearch]);
   const seasons = selectedPair?.seasons ?? [];
-  const currentId = selectedPair ? pairId(selectedPair.league, selectedPair.homeTeam, selectedPair.awayTeam) : "";
-
-  useEffect(() => {
-    if (selectedPair && currentId !== selectedPairId) setSelectedPairId(currentId);
-  }, [currentId, selectedPair, selectedPairId, setSelectedPairId]);
 
   return (
     <div className="view-stack">
-      <div className="section-heading-row"><div><span className="eyebrow">PÁROSÍTÁS-EXPLORER</span><h2>Hazai és vendég, külön kezelve</h2><p>Minden sor irányított: a bal oldali csapat hazai, a jobb oldali vendég.</p></div>
-        <label className="select-wrap compact-select"><SlidersHorizontal size={15} /><select value={league} onChange={(event) => setLeague(event.target.value as LeagueFilter)}><option value="mindkettő">Mindkét liga</option><option value="angol">Angol</option><option value="spanyol">Spanyol</option></select><ChevronDown size={14} /></label></div>
-      <div className="pair-layout">
-        <section className="panel pair-list-panel">
-          <div className="panel-heading"><div><span className="eyebrow">TÖRTÉNETI PÁROSÍTÁSOK</span><h3>{formatNumber(pairs.length)} pár</h3></div><span className="denominator-chip">N = ismétlések</span></div>
-          <label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Csapat keresése…" /><kbd>⌕</kbd></label>
-          <div className="pair-table-wrap"><table className="data-table pair-table"><thead><tr><th>Hazai → vendég</th><th>n</th><th>HT</th><th>Leggyakoribb HT → FT</th></tr></thead><tbody>
-            {pairs.map((pair) => {
-              const id = pairId(pair.league, pair.homeTeam, pair.awayTeam);
-              const top = pair.htftScores[0];
-              return <tr key={id} className={id === currentId ? "selected-row" : ""} onClick={() => setSelectedPairId(id)} tabIndex={0} onKeyDown={(event) => { if (event.key === "Enter") setSelectedPairId(id); }}>
-                <td><span className="team-pair"><b>{pair.homeTeam}</b><ArrowRight size={12} /><b>{pair.awayTeam}</b><small>{leagueShort[pair.league]}</small></span></td>
-                <td><strong className="table-count">{formatNumber(pair.matches)}</strong></td>
-                <td><span className="mini-coverage">{formatNumber(pair.htValid)}/{formatNumber(pair.matches)}</span></td>
-                <td><span className="score-pill">{top ? scoreTransition(top.key) : "HT hiányzik"}</span></td>
-              </tr>;
-            })}
-            {!pairs.length && <tr><td colSpan={4} className="table-empty">Nincs ilyen csapatpár.</td></tr>}
-          </tbody></table></div>
-          <div className="table-footer"><span>{formatNumber(pairs.length)} rendezett párosítás megjelenítve</span><span>Betöltve: {formatNumber(report.matches.length)} meccs</span></div>
-        </section>
-        <div className="pair-detail-column">
-          {selectedPair ? <>
+      <div className="section-heading-row"><div><span className="eyebrow">PÁROSÍTÁS-EXPLORER</span><h2>Válaszd ki a hazai és vendég csapatot</h2><p>A két legördülőből kiválasztott, irányított párosítás múltbeli mérkőzéseit mutatjuk.</p></div>
+        <label className="select-wrap compact-select"><SlidersHorizontal size={15} /><select aria-label="Liga kiválasztása" value={league} onChange={(event) => { setLeague(event.target.value as LeagueFilter); setHomeSelection(""); setAwaySelection(""); setSeasonFilter("mind"); setRoundFilter("mind"); setTableSearch(""); }}><option value="mindkettő">Mindkét liga</option><option value="angol">Angol</option><option value="spanyol">Spanyol</option></select><ChevronDown size={14} /></label></div>
+      <section className="panel pair-selector-panel">
+        <div className="panel-heading"><div><span className="eyebrow">CSAPATVÁLASZTÁS</span><h3>Hazai → vendég párosítás</h3></div><span className="denominator-chip">{selectedPair ? `${formatNumber(selectedPair.matches)} történeti meccs` : "Nincs kiválasztva"}</span></div>
+        <div className="pair-selector-grid">
+          <label className="pair-selector-field"><span className="eyebrow">HAZAI CSAPAT</span><span className="select-wrap pair-team-select"><select aria-label="Hazai csapat" value={homeSelection} onChange={(event) => { setHomeSelection(event.target.value); setAwaySelection(""); setSeasonFilter("mind"); setRoundFilter("mind"); setTableSearch(""); }}><option value="">Válassz hazai csapatot…</option>{teamOptions.map((team) => <option key={teamValue(team)} value={teamValue(team)}>{league === "mindkettő" ? `${leagueShort[team.league]} · ` : ""}{team.name}</option>)}</select><ChevronDown size={14} /></span></label>
+          <label className="pair-selector-field"><span className="eyebrow">VENDÉG CSAPAT</span><span className="select-wrap pair-team-select"><select aria-label="Vendég csapat" value={awaySelection} disabled={!selectedHome} onChange={(event) => { setAwaySelection(event.target.value); setSeasonFilter("mind"); setRoundFilter("mind"); setTableSearch(""); }}><option value="">{selectedHome ? "Válassz vendégcsapatot…" : "Előbb válassz hazai csapatot"}</option>{awayOptions.map((team) => <option key={teamValue(team)} value={teamValue(team)}>{team.name}</option>)}</select><ChevronDown size={14} /></span></label>
+        </div>
+        <div className={`pair-selection-status${selectedPair ? " is-ready" : ""}`} aria-live="polite">{selectedPair ? <><CircleCheck size={15} /> Csak a {selectedPair.homeTeam} → {selectedPair.awayTeam} párosítás eredményei láthatók.</> : <><ArrowRight size={15} /> Először válaszd ki a hazai, majd a vendég csapatot.</>}</div>
+      </section>
+      {selectedPair ? <div className="pair-detail-column">
             <section className="pair-detail-hero">
               <div className="pair-detail-top"><span className="league-badge">{leagueLabel[selectedPair.league]}</span><span className="sample-badge">MÚLTBELI MINTA · n={selectedPair.matches}</span></div>
               <h3>{selectedPair.homeTeam}<span>vs</span>{selectedPair.awayTeam}</h3>
@@ -356,9 +351,7 @@ function PairExplorer({ report, league, setLeague, selectedPairId, setSelectedPa
               </tbody></table></div>
               <div className="table-footer"><span>A HH:MM mező virtuális időjelzés, nem naptári dátum.</span><span>{formatNumber(selectedPair.seasons.length)} szezon</span></div>
             </section>
-          </> : <div className="empty-state"><Search size={25} /><strong>Válassz egy hazai–vendég párt</strong><span>Az eredményminták és a szezononkénti előfordulások itt jelennek meg.</span></div>}
-        </div>
-      </div>
+      </div> : <div className="empty-state pair-empty-state"><Search size={25} /><strong>{selectedHome ? "Válassz vendég csapatot" : "Válaszd ki a csapatokat"}</strong><span>Az eredményeloszlás és a mérkőzéslista csak a két csapat kiválasztása után jelenik meg.</span></div>}
     </div>
   );
 }
@@ -440,7 +433,6 @@ export default function App() {
   const [runCancelled, setRunCancelled] = useState(false);
   const [view, setView] = useState<View>("overview");
   const [league, setLeague] = useState<LeagueFilter>("mindkettő");
-  const [selectedPairId, setSelectedPairId] = useState("");
   const workerRef = useRef<Worker | null>(null);
 
   useEffect(() => {
@@ -476,8 +468,6 @@ export default function App() {
         setProgress({ phase: "complete", percent: 100, completedFiles: payload.report.sourceFileCount, totalFiles: payload.report.sourceFileCount, completedMatches: payload.report.matchCount, totalMatches: payload.report.matchCount, loadedBytes: payload.report.sourceBytes, totalBytes: payload.report.sourceBytes, message: "Az audit teljes." });
         setView("overview");
         setLeague("mindkettő");
-        const first = payload.report.pairs[0];
-        if (first) setSelectedPairId(pairId(first.league, first.homeTeam, first.awayTeam));
         worker.terminate();
         workerRef.current = null;
       }
@@ -547,7 +537,7 @@ export default function App() {
             {navItems.map((item) => <button key={item.id} role="tab" aria-selected={view === item.id} className={view === item.id ? "active" : ""} onClick={() => setView(item.id)}><item.icon size={15} />{item.label}{item.id === "pairs" && report && <span>{formatNumber(selectedPairCount)}</span>}</button>)}
           </div>
 
-          {!report ? <Overview report={null} league={league} setLeague={setLeague} onOpenPairs={() => setView("pairs")} /> : view === "overview" ? <Overview report={report} league={league} setLeague={setLeague} onOpenPairs={() => setView("pairs")} /> : view === "pairs" ? <PairExplorer report={report} league={league} setLeague={setLeague} selectedPairId={selectedPairId} setSelectedPairId={setSelectedPairId} /> : view === "positions" ? <PositionAnalysis report={report} league={league} setLeague={setLeague} /> : <DataQuality report={report} league={league} setLeague={setLeague} />}
+          {!report ? <Overview report={null} league={league} setLeague={setLeague} onOpenPairs={() => setView("pairs")} /> : view === "overview" ? <Overview report={report} league={league} setLeague={setLeague} onOpenPairs={() => setView("pairs")} /> : view === "pairs" ? <PairExplorer report={report} league={league} setLeague={setLeague} /> : view === "positions" ? <PositionAnalysis report={report} league={league} setLeague={setLeague} /> : <DataQuality report={report} league={league} setLeague={setLeague} />}
 
           {!report && <div className="preflight-footer"><div><span className="preflight-icon"><Database size={16} /></span><span><b>Forrásbiztonság</b><small>Nyilvános, commithez rögzített GitHub-adat · nincs adatbázis-írás.</small></span></div><span>{manifest ? `${formatNumber(manifest.files.length)} fájl · ${formatBytes(manifest.expectedByteCount)}` : "Manifeszt ellenőrzése…"}</span></div>}
           {report && <footer className="page-footer"><span>WINMIX HISTORICAL LAB</span><span>Snapshot {report.commitSha.slice(0, 12)} · {formatNumber(report.sourceFileCount)} szezonfájl</span><span>Leíró történeti statisztika</span></footer>}

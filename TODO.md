@@ -26,6 +26,7 @@
 - Minden igazolt rendezett hazai–vendég csapatpárnál mutasd meg a történeti félidei és végeredmény-kombinációk gyakorisági rangsorát, darabszámát és arányát.
 - Az előfordulások legyenek visszakövethetők szezonra és fordulóra.
 - Az eredmények legyenek böngészhetők és szűrhetők liga, rendezett csapatpár, szezon és forduló szerint.
+- A hazai és a vendég csapat külön legördülő listából legyen kiválasztható; a vendéglista a kiválasztott hazai csapat ligájához igazodjon, és csak a kiválasztott hazai–vendég párosítás mérkőzés-információi jelenjenek meg.
 - Minden számított mutató mellett jelenjen meg a tényleges mintaszám.
 - A gyakoriságot kizárólag leíró múltbeli statisztikaként jelenítsd meg; ne nevezd jövőbeli valószínűségnek, garantált előrejelzésnek vagy fogadási ajánlásnak.
 

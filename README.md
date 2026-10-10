@@ -16,7 +16,7 @@ A vizsgált ligákban 16 fix csapat és 240 **irányított** hazai–vendég pá
 
 - A főoldalról indítható és újrafuttatható a teljes audit.
 - Az archívum letöltése, SHA-1 ellenőrzése és rekordfeldolgozása Web Workerben, legfeljebb négy párhuzamos szezonfájl feldolgozásával történik; a 0–100%-os kijelző valós fájl-, meccs- és bájtszámlálókat mutat.
-- Böngészhető a liga-, csapatpár-, szezon- és fordulószintű eredményeloszlás. Hazai és vendég szerep külön marad.
+- A Párosítások nézetben a hazai és vendég csapat külön legördülő listából választható ki; a vendéglista a kiválasztott hazai csapat ligájára szűkül, és csak az adott rendezett párosítás mérkőzései, eredményeloszlásai és szezon/forduló szerinti előfordulásai látszanak.
 - A HT→FT átmenetek és a pontos HT→FT eredménykombinációk darabszámmal és mintán belüli aránnyal jelennek meg.
 - CSV/JSON export tölthető le az auditból.
 - A „Adatminőség” nézet minden szezon checksumját, eredményszámát, csapatait, párosításait, HT-hiányát és fordulóblokkjait listázza.
