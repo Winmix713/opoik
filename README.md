@@ -17,8 +17,10 @@ A vizsgált ligákban 16 fix csapat és 240 **irányított** hazai–vendég pá
 - A főoldalról indítható és újrafuttatható a teljes audit.
 - Az archívum letöltése, SHA-1 ellenőrzése és rekordfeldolgozása Web Workerben, legfeljebb négy párhuzamos szezonfájl feldolgozásával történik; a 0–100%-os kijelző valós fájl-, meccs- és bájtszámlálókat mutat.
 - A Párosítások nézetben a hazai és vendég csapat külön legördülő listából választható ki; a vendéglista a kiválasztott hazai csapat ligájára szűkül, és csak az adott rendezett párosítás mérkőzései, eredményeloszlásai és szezon/forduló szerinti előfordulásai látszanak.
-- A HT→FT átmenetek és a pontos HT→FT eredménykombinációk darabszámmal és mintán belüli aránnyal jelennek meg.
-- CSV/JSON export tölthető le az auditból.
+- Páronként látható a hazai/döntetlen/vendég kimenet HT-ben, FT-ben és a második félidőben; a BTTS igen/nem és BTTS×Over/Under 2,5 kombinációk, a kapott gól nélküli meccsek, valamint a teljes/első/második félidős Over/Under 0,5–4,5 eloszlás.
+- Páronként megjelenik az FT/HT/2. félidős összgól-, valamint hazai és vendég góleloszlás; a teljes, első és második félidős összes és csapatonkénti gólátlag; a top 3 pontos félidei és végeredmény; továbbá a top 3 HT→FT kimenet- és pontos állásváltás.
+- Minden mutató a saját érvényes történeti mintaszámával és azon belüli arányával jelenik meg; a hiányzó HT-adat nem kerül a HT- vagy 2. félidős nevezőbe. Pontos gólsorrend/idő hiányában ilyen mutatók nem készülnek.
+- A Párok CSV tartalmazza a páronkénti teljes HT/FT-eloszlásokat, top-3 listákat, gólvonalakat, átlagokat, érvényes nevezőket és szezon/forduló előfordulásokat; az audit JSON és a Meccsek CSV is letölthető.
 - A „Adatminőség” nézet minden szezon checksumját, eredményszámát, csapatait, párosításait, HT-hiányát és fordulóblokkjait listázza.
 - A gyakoriság leíró múltbeli statisztika; nem jövőbeli valószínűség, eredményígéret vagy fogadási ajánlás.
 

@@ -28,6 +28,12 @@
 - Az eredmények legyenek böngészhetők és szűrhetők liga, rendezett csapatpár, szezon és forduló szerint.
 - A hazai és a vendég csapat külön legördülő listából legyen kiválasztható; a vendéglista a kiválasztott hazai csapat ligájához igazodjon, és csak a kiválasztott hazai–vendég párosítás mérkőzés-információi jelenjenek meg.
 - Minden számított mutató mellett jelenjen meg a tényleges mintaszám.
+- Mutasd meg a végeredmény és a félidei állás hazai győzelem/döntetlen/vendég győzelem eloszlását; a második félidőben a HT és FT közötti gólszám-változás kimenetelét is.
+- Mutasd meg a teljes mérkőzés, az első félidő és a második félidő BTTS igen/nem eloszlását, a BTTS×Over/Under 2,5 kombinációit, a kapott gól nélküli meccseket, valamint a teljes/első/második félidő 0,5; 1,5; 2,5; 3,5 és 4,5 gólos Over/Under vonalait.
+- Mutasd meg a teljes mérkőzés, az első félidő és a második félidő összgól-eloszlását, külön a hazai és a vendég csapat által szerzett gólok eloszlását, valamint a HT-, FT- és második félidős összes és csapatonkénti gólátlagot.
+- Külön jelenjen meg a top 3 pontos HT-eredmény, top 3 pontos végeredmény, top 3 HT→FT kimenetváltás és top 3 pontos HT→FT eredménypár.
+- A HT- és második félidős nevezőből hagyd ki a hiányzó HT-adatot; a második félidős mutatót csak összehasonlítható HT/FT állásokból számítsd. Minden arány saját érvényes mintaszámhoz tartozzon.
+- Csak a HT- és FT-állásból ténylegesen levezethető adatot jelenítsd meg; gólsorrendre vagy percre bontott gólszerzésre ne következtess.
 - A gyakoriságot kizárólag leíró múltbeli statisztikaként jelenítsd meg; ne nevezd jövőbeli valószínűségnek, garantált előrejelzésnek vagy fogadási ajánlásnak.
 
 ## [x] 5. Eredményexport és integrációs diagnosztika
@@ -35,3 +41,4 @@
 - Tedd lehetővé az elemzési eredmények exportját, amennyiben azt az igazolt adatforrás és a platform támogatja.
 - Ha valamelyik forrás vagy funkció nem érhető el, mutasd meg a konkrét integrációs hibát és az érintett adatlefedettséget; ne használj mock vagy kitalált adatot.
 - Az exportnak tartalmaznia kell a forrást, ligát, csapatpárt, mintaszámot, eredménykombinációk darabszámát és arányát, valamint az előfordulások szezon/forduló hivatkozásait, ha ezek az adatok rendelkezésre állnak.
+- A párosítási CSV exportálja a végeredmény/HT/második félidő kimeneteket, BTTS és BTTS×Over/Under 2,5 bontást, kapott gól nélküli meccseket, 0,5–4,5 gólvonalakat, össz- és csapatonkénti góleloszlásokat és átlagokat, teljes pontos HT/FT és HT→FT eloszlásokat, top-3 listákat, érvényes mintaszámokat és szezonbontásokat.

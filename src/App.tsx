@@ -35,6 +35,7 @@ import type {
   WorkerEvent,
 } from "./types";
 import { checkSupabaseReadOnly, type SupabaseLiveStatus } from "./supabase";
+import { analyzePairMatches, type GoalLineSummary } from "./pair-analysis";
 
 type View = "overview" | "pairs" | "positions" | "quality";
 
@@ -56,6 +57,10 @@ const formatNumber = (value: number) => new Intl.NumberFormat("hu-HU").format(va
 const formatRate = (value: number) => `${(value * 100).toLocaleString("hu-HU", { maximumFractionDigits: 1 })}%`;
 const formatBytes = (value: number) => `${(value / 1_000_000).toLocaleString("hu-HU", { maximumFractionDigits: 1 })} MB`;
 const outcomeName = (key: string) => transitionLabel[key] ?? key;
+const resultName = (key: string) => ({ H: "Hazai győzelem", D: "Döntetlen", A: "Vendég győzelem" }[key] ?? key);
+const secondHalfResultName = (key: string) => ({ H: "Hazai több 2. félidős gól", D: "Azonos 2. félidős gólszám", A: "Vendég több 2. félidős gól" }[key] ?? key);
+const goalBucketName = (key: string) => `${key} gól`;
+const formatAverage = (value: number | null) => value === null ? "—" : value.toLocaleString("hu-HU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const scoreTransition = (value: string) => value.replace(">", "  →  ").replaceAll("-", "–");
 
 function downloadFile(name: string, content: string, type: string) {
@@ -77,22 +82,62 @@ function csvCell(value: unknown) {
 
 function exportPairsCSV(report: AuditReport) {
   const header = [
-    "archive_commit", "league", "home_team", "away_team", "meetings_n", "ht_valid_n", "ht_missing_n",
-    "ft_score_distribution_json", "htft_outcome_distribution_json", "exact_htft_distribution_json", "season_occurrences_json",
+    "archive_commit", "league", "home_team", "away_team", "meetings_n", "valid_ft_n", "valid_ht_n", "missing_ht_n", "valid_second_half_n", "averages_json",
+    "ft_result_distribution_json", "ht_result_distribution_json", "second_half_result_distribution_json", "btts_ft_json", "btts_ht_json", "btts_second_half_json",
+    "btts_over_under_25_json", "clean_sheets_json", "ft_goal_lines_json", "ht_goal_lines_json", "second_half_goal_lines_json",
+    "ft_total_goals_json", "ht_total_goals_json", "second_half_total_goals_json", "home_goals_json", "away_goals_json",
+    "ft_exact_scores_json", "ht_exact_scores_json", "htft_outcomes_json", "htft_exact_scores_json",
+    "top3_ft_scores_json", "top3_ht_scores_json", "top3_htft_outcomes_json", "top3_htft_exact_scores_json", "season_occurrences_json",
   ];
-  const rows = report.pairs.map((pair) => [
-    report.commitSha,
-    pair.league,
-    pair.homeTeam,
-    pair.awayTeam,
-    pair.matches,
-    pair.htValid,
-    pair.htMissing,
-    pair.ftScores.map((item) => ({ score: item.key, count: item.count, rate: item.rate })),
-    pair.htftOutcomes.map((item) => ({ transition: item.key, count: item.count, rate: item.rate })),
-    pair.htftScores.map((item) => ({ ht_ft_score: item.key, count: item.count, rate: item.rate })),
-    pair.seasons.map((item) => ({ seasonIndex: item.seasonIndex, seasonName: item.seasonName, matches: item.matches, htValid: item.htValid, htMissing: item.htMissing })),
-  ]);
+  const matchesByPair = new Map<string, AuditReport["matches"]>();
+  for (const match of report.matches) {
+    const key = JSON.stringify([match.league, match.homeTeam, match.awayTeam]);
+    const matches = matchesByPair.get(key) ?? [];
+    matches.push(match);
+    matchesByPair.set(key, matches);
+  }
+  const serialize = (items: Frequency[]) => items.map((item) => ({ key: item.key, count: item.count, rate: item.rate }));
+  const rows = report.pairs.map((pair) => {
+    const key = JSON.stringify([pair.league, pair.homeTeam, pair.awayTeam]);
+    const analysis = analyzePairMatches(matchesByPair.get(key) ?? []);
+    return [
+      report.commitSha,
+      pair.league,
+      pair.homeTeam,
+      pair.awayTeam,
+      pair.matches,
+      analysis.validFt,
+      analysis.validHt,
+      pair.matches - analysis.validHt,
+      analysis.validSecondHalf,
+      analysis.averages,
+      serialize(analysis.ftOutcomes),
+      serialize(analysis.htOutcomes),
+      serialize(analysis.secondHalfOutcomes),
+      serialize(analysis.ftBtts),
+      serialize(analysis.htBtts),
+      serialize(analysis.secondHalfBtts),
+      serialize(analysis.bttsOver25),
+      serialize(analysis.cleanSheets),
+      analysis.ftGoalLines,
+      analysis.htGoalLines,
+      analysis.secondHalfGoalLines,
+      serialize(analysis.ftGoals),
+      serialize(analysis.htGoals),
+      serialize(analysis.secondHalfGoals),
+      serialize(analysis.homeGoals),
+      serialize(analysis.awayGoals),
+      serialize(analysis.ftScores),
+      serialize(analysis.htScores),
+      serialize(analysis.htftOutcomes),
+      serialize(analysis.htftScores),
+      serialize(analysis.ftScores.slice(0, 3)),
+      serialize(analysis.htScores.slice(0, 3)),
+      serialize(analysis.htftOutcomes.slice(0, 3)),
+      serialize(analysis.htftScores.slice(0, 3)),
+      pair.seasons.map((item) => ({ seasonIndex: item.seasonIndex, seasonName: item.seasonName, matches: item.matches, htValid: item.htValid, htMissing: item.htMissing })),
+    ];
+  });
   const csv = [header, ...rows].map((row) => row.map(csvCell).join(",")).join("\r\n");
   downloadFile("winmix-pairing-audit.csv", `\ufeff${csv}`, "text/csv;charset=utf-8");
 }
@@ -140,14 +185,15 @@ function StatCard({ label, value, note, icon: Icon, accent = false }: {
   );
 }
 
-function FrequencyBars({ title, items, denominator, formatKey, emptyText }: {
+function FrequencyBars({ title, items, denominator, formatKey, emptyText, limit = 6 }: {
   title: string;
   items: { key: string; count: number; rate?: number }[];
   denominator: number;
   formatKey: (key: string) => string;
   emptyText: string;
+  limit?: number;
 }) {
-  const shown = items.slice(0, 6);
+  const shown = items.slice(0, limit);
   const max = Math.max(1, ...shown.map((item) => item.count));
   return (
     <section className="panel frequency-panel">
@@ -165,6 +211,23 @@ function FrequencyBars({ title, items, denominator, formatKey, emptyText }: {
         ))}
       </div> : <div className="empty-state compact"><span>{emptyText}</span></div>}
       <p className="panel-footnote">A százalék az érvényes történeti mintán belüli arány, nem jövőbeli esély.</p>
+    </section>
+  );
+}
+
+function GoalLinePanel({ title, rows, denominator }: { title: string; rows: GoalLineSummary[]; denominator: number }) {
+  return (
+    <section className="panel goal-lines-panel">
+      <div className="panel-heading"><div><span className="eyebrow">GÓLVONALAK · MÚLTBELI MINTA</span><h3>{title}</h3></div><span className="denominator-chip">n = {formatNumber(denominator)}</span></div>
+      {denominator ? <div className="goal-line-list">
+        <div className="goal-line-row goal-line-heading"><span>Vonal</span><span>Over</span><span>Under</span></div>
+        {rows.map((row) => <div className="goal-line-row" key={row.line}>
+          <span className="goal-line-name">{row.line}</span>
+          <span><b>{formatNumber(row.overCount)}</b><small>{formatRate(row.overRate)}</small></span>
+          <span><b>{formatNumber(row.underCount)}</b><small>{formatRate(row.underRate)}</small></span>
+        </div>)}
+      </div> : <div className="empty-state compact"><span>Nincs érvényes eredmény ebben a mintában.</span></div>}
+      <p className="panel-footnote">Over = a megadott félgólnál több; Under = legfeljebb a megadott félgól. Az arány nevezője n={formatNumber(denominator)}.</p>
     </section>
   );
 }
@@ -313,12 +376,14 @@ function PairExplorer({ report, league, setLeague }: {
   const selectedPair = selectedHome && selectedAway
     ? report.pairs.find((pair) => pair.league === selectedHome.league && pair.homeTeam === selectedHome.name && pair.awayTeam === selectedAway.name) ?? null
     : null;
-  const occurrences = useMemo(() => selectedPair ? report.matches
-    .filter((match) => match.league === selectedPair.league && match.homeTeam === selectedPair.homeTeam && match.awayTeam === selectedPair.awayTeam)
+  const pairMatches = useMemo(() => selectedPair ? report.matches
+    .filter((match) => match.league === selectedPair.league && match.homeTeam === selectedPair.homeTeam && match.awayTeam === selectedPair.awayTeam) : [], [report.matches, selectedPair]);
+  const analysis = useMemo(() => analyzePairMatches(pairMatches), [pairMatches]);
+  const occurrences = useMemo(() => pairMatches
     .filter((match) => seasonFilter === "mind" || String(match.seasonIndex) === seasonFilter)
     .filter((match) => roundFilter === "mind" || String(match.roundNo) === roundFilter)
     .filter((match) => !tableSearch || `${match.seasonName} ${match.matchPosition}`.toLocaleLowerCase("hu").includes(tableSearch.toLocaleLowerCase("hu")))
-    .sort((a, b) => a.seasonIndex - b.seasonIndex || a.matchPosition - b.matchPosition) : [], [report.matches, selectedPair, seasonFilter, roundFilter, tableSearch]);
+    .sort((a, b) => a.seasonIndex - b.seasonIndex || a.matchPosition - b.matchPosition), [pairMatches, seasonFilter, roundFilter, tableSearch]);
   const seasons = selectedPair?.seasons ?? [];
 
   return (
@@ -340,8 +405,57 @@ function PairExplorer({ report, league, setLeague }: {
               <p>A hazai–vendég irány változatlan az összesített szezonok között.</p>
               <div className="pair-detail-stats"><div><span>Találkozó</span><strong>{formatNumber(selectedPair.matches)}</strong></div><div><span>Érvényes HT</span><strong>{formatNumber(selectedPair.htValid)}</strong></div><div><span>Hiányzó HT</span><strong className={selectedPair.htMissing ? "warn-number" : ""}>{formatNumber(selectedPair.htMissing)}</strong></div></div>
             </section>
-            <FrequencyBars title="Pontos HT → FT eredménypár" items={selectedPair.htftScores} denominator={selectedPair.htValid} formatKey={scoreTransition} emptyText="Ehhez a párhoz nincs értékelhető félidei eredmény." />
-            <FrequencyBars title="HT → FT kimenetváltás" items={selectedPair.htftOutcomes} denominator={selectedPair.htValid} formatKey={outcomeName} emptyText="A félidei eredmény hiányzik." />
+            <div className="stats-grid pair-stat-grid">
+              <StatCard label="Érvényes FT-minta" value={formatNumber(analysis.validFt)} note={`${formatNumber(analysis.validHt)} érvényes HT · ${formatNumber(analysis.validSecondHalf)} érvényes 2. félidő`} icon={ListChecks} />
+              <StatCard label="FT összgólátlag" value={formatAverage(analysis.averages.ftTotal)} note={`Hazai ${formatAverage(analysis.averages.ftHome)} · vendég ${formatAverage(analysis.averages.ftAway)}`} icon={Activity} />
+              <StatCard label="HT összgólátlag" value={formatAverage(analysis.averages.htTotal)} note={`Hazai ${formatAverage(analysis.averages.htHome)} · vendég ${formatAverage(analysis.averages.htAway)}`} icon={Clock3} />
+              <StatCard label="2. félidő összgólátlag" value={formatAverage(analysis.averages.secondHalfTotal)} note={`Hazai ${formatAverage(analysis.averages.secondHalfHome)} · vendég ${formatAverage(analysis.averages.secondHalfAway)}`} icon={BarChart3} />
+            </div>
+
+            <section className="pair-analysis-group">
+              <div className="pair-analysis-heading"><span className="eyebrow">EREDMÉNYKIMENETEK</span><h4>Győzelmek és döntetlenek</h4></div>
+              <div className="pair-analysis-grid">
+                <FrequencyBars title="Végeredmény · hazai / döntetlen / vendég" items={analysis.ftOutcomes} denominator={analysis.validFt} formatKey={resultName} emptyText="Nincs érvényes végeredmény." />
+                <FrequencyBars title="Félidei állás · hazai / döntetlen / vendég" items={analysis.htOutcomes} denominator={analysis.validHt} formatKey={resultName} emptyText="Nincs érvényes félidei eredmény." />
+                <FrequencyBars title="2. félidő gólkülönbsége" items={analysis.secondHalfOutcomes} denominator={analysis.validSecondHalf} formatKey={secondHalfResultName} emptyText="Nincs összehasonlítható HT/FT minta." />
+              </div>
+            </section>
+
+            <section className="pair-analysis-group">
+              <div className="pair-analysis-heading"><span className="eyebrow">BTTS ÉS GÓLVONALAK</span><h4>Piaci típusú történeti bontások</h4></div>
+              <div className="pair-analysis-grid">
+                <FrequencyBars title="BTTS · teljes mérkőzés" items={analysis.ftBtts} denominator={analysis.validFt} formatKey={(key) => `BTTS ${key.toLocaleLowerCase("hu")}`} emptyText="Nincs érvényes végeredmény." />
+                <FrequencyBars title="BTTS · első félidő" items={analysis.htBtts} denominator={analysis.validHt} formatKey={(key) => `HT BTTS ${key.toLocaleLowerCase("hu")}`} emptyText="Nincs érvényes félidei eredmény." />
+                <FrequencyBars title="BTTS · második félidő" items={analysis.secondHalfBtts} denominator={analysis.validSecondHalf} formatKey={(key) => `2. félidős BTTS ${key.toLocaleLowerCase("hu")}`} emptyText="Nincs összehasonlítható HT/FT minta." />
+                <FrequencyBars title="BTTS × Over/Under 2,5" items={analysis.bttsOver25} denominator={analysis.validFt} formatKey={(key) => key} emptyText="Nincs érvényes végeredmény." />
+                <FrequencyBars title="Kapott gól nélküli mérkőzések" items={analysis.cleanSheets} denominator={analysis.validFt} formatKey={(key) => key} emptyText="Nincs érvényes végeredmény." />
+                <GoalLinePanel title="Teljes mérkőzés összgóljai" rows={analysis.ftGoalLines} denominator={analysis.validFt} />
+                <GoalLinePanel title="Első félidő összgóljai" rows={analysis.htGoalLines} denominator={analysis.validHt} />
+                <GoalLinePanel title="Második félidő összgóljai" rows={analysis.secondHalfGoalLines} denominator={analysis.validSecondHalf} />
+              </div>
+            </section>
+
+            <section className="pair-analysis-group">
+              <div className="pair-analysis-heading"><span className="eyebrow">PONTOS EREDMÉNYEK ÉS GÓLELOSZLÁS</span><h4>A leggyakoribb állások és gólmennyiségek</h4></div>
+              <div className="pair-analysis-grid">
+                <FrequencyBars title="Top 3 végeredmény" items={analysis.ftScores} denominator={analysis.validFt} formatKey={scoreTransition} emptyText="Nincs érvényes végeredmény." limit={3} />
+                <FrequencyBars title="Top 3 félidei eredmény" items={analysis.htScores} denominator={analysis.validHt} formatKey={scoreTransition} emptyText="Nincs érvényes félidei eredmény." limit={3} />
+                <FrequencyBars title="Teljes mérkőzés · összgól-eloszlás" items={analysis.ftGoals} denominator={analysis.validFt} formatKey={goalBucketName} emptyText="Nincs érvényes végeredmény." />
+                <FrequencyBars title="Első félidő · összgól-eloszlás" items={analysis.htGoals} denominator={analysis.validHt} formatKey={goalBucketName} emptyText="Nincs érvényes félidei eredmény." />
+                <FrequencyBars title="Második félidő · összgól-eloszlás" items={analysis.secondHalfGoals} denominator={analysis.validSecondHalf} formatKey={goalBucketName} emptyText="Nincs összehasonlítható HT/FT minta." />
+                <FrequencyBars title="Hazai csapat · szerzett gólok" items={analysis.homeGoals} denominator={analysis.validFt} formatKey={goalBucketName} emptyText="Nincs érvényes végeredmény." />
+                <FrequencyBars title="Vendég csapat · szerzett gólok" items={analysis.awayGoals} denominator={analysis.validFt} formatKey={goalBucketName} emptyText="Nincs érvényes végeredmény." />
+              </div>
+            </section>
+
+            <section className="pair-analysis-group">
+              <div className="pair-analysis-heading"><span className="eyebrow">FÉLIDŐ → VÉGEREDMÉNY</span><h4>Állásváltozások a mérkőzés során</h4></div>
+              <div className="pair-analysis-grid">
+                <FrequencyBars title="Top 3 HT → FT kimenetváltás" items={analysis.htftOutcomes} denominator={analysis.validHt} formatKey={outcomeName} emptyText="A félidei eredmény hiányzik." limit={3} />
+                <FrequencyBars title="Top 3 pontos HT → FT eredménypár" items={analysis.htftScores} denominator={analysis.validHt} formatKey={scoreTransition} emptyText="Ehhez a párhoz nincs értékelhető félidei eredmény." limit={3} />
+              </div>
+              <div className="analysis-note pair-analysis-note"><span className="note-mark">i</span><div><b>Minták és korlátok</b><p>Minden százalék a panel saját, érvényes mintáján belüli múltbeli arány. A második félidős mutatók csak ott számolódnak, ahol a félidei és végeredmény mindkét csapatnál összehasonlítható. A forrás nem tartalmaz pontos gólszerzési időt, ezért percre vagy gólsorrendre nem következtetünk; ezek leíró statisztikák, nem előrejelzések.</p></div></div>
+            </section>
             <section className="panel occurrence-panel">
               <div className="panel-heading"><div><span className="eyebrow">ELŐFORDULÁSOK</span><h3>Szezononkénti meccsek</h3></div><span className="denominator-chip">{formatNumber(occurrences.length)} találat</span></div>
               <div className="filter-row"><label className="select-wrap"><select value={seasonFilter} onChange={(event) => setSeasonFilter(event.target.value)}><option value="mind">Minden szezon</option>{seasons.map((item) => <option key={item.seasonIndex} value={item.seasonIndex}>{item.seasonName}</option>)}</select><ChevronDown size={13} /></label><label className="select-wrap"><select value={roundFilter} onChange={(event) => setRoundFilter(event.target.value)}><option value="mind">Minden forduló</option>{Array.from({ length: 30 }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}. forduló</option>)}</select><ChevronDown size={13} /></label><label className="small-search"><Search size={13} /><input value={tableSearch} onChange={(event) => setTableSearch(event.target.value)} placeholder="Szezon…" /></label></div>

@@ -280,6 +280,21 @@ a { color: inherit; text-decoration: none; }
 .pair-detail-column .frequency-row { grid-template-columns: minmax(145px, 1fr) minmax(42px, .6fr) 48px; gap: 8px; }
 .pair-detail-column .frequency-label { font-size: 8px; }
 .pair-detail-column .panel-footnote { margin-top: 9px; padding-top: 7px; }
+.pair-stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pair-analysis-group { display: grid; gap: 8px; }
+.pair-analysis-heading { display: flex; align-items: baseline; gap: 10px; padding: 2px 1px; }
+.pair-analysis-heading h4 { margin: 0; color: #d6e0d2; font-size: 11px; font-weight: 650; }
+.pair-analysis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.goal-lines-panel .panel-heading h3 { font-size: 10px; }
+.goal-line-list { display: grid; gap: 2px; }
+.goal-line-row { display: grid; grid-template-columns: 42px minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 6px; min-height: 26px; padding: 3px 0; border-bottom: 1px solid rgba(228,238,225,.045); color: #adb9a8; font-family: var(--mono); font-size: 8px; }
+.goal-line-row:last-child { border-bottom: 0; }
+.goal-line-row > span:not(:first-child) { display: flex; align-items: baseline; justify-content: space-between; gap: 4px; }
+.goal-line-row b { color: #d8e4d0; font-size: 8px; font-weight: 500; }
+.goal-line-row small { color: #82917d; font-size: 7px; }
+.goal-line-heading { min-height: 21px; color: #748270; font-size: 7px; }
+.goal-line-name { color: #c5d4bc; }
+.pair-analysis-note { margin-top: 1px; }
 .occurrence-panel .panel-heading { margin-bottom: 9px; }
 .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 9px; }
 .filter-row .select-wrap { min-height: 28px; }
@@ -348,6 +363,9 @@ a { color: inherit; text-decoration: none; }
   .hero-action-card { flex-basis: 245px; }
   .pair-layout { grid-template-columns: 1fr; }
   .pair-detail-column { grid-template-columns: 1fr 1fr; }
+  .pair-detail-column > .pair-stat-grid, .pair-detail-column > .pair-analysis-group { grid-column: 1 / -1; }
+  .pair-stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pair-analysis-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pair-detail-hero, .occurrence-panel { grid-column: 1 / -1; }
 }
 @media (max-width: 680px) {
@@ -389,6 +407,8 @@ a { color: inherit; text-decoration: none; }
   .pair-selector-grid { grid-template-columns: 1fr; }
   .pair-team-select select { max-width: none; }
   .pair-detail-column { grid-template-columns: 1fr; }
+  .pair-analysis-grid { grid-template-columns: 1fr; }
+  .pair-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pair-detail-hero, .occurrence-panel { grid-column: auto; }
   .pair-list-panel { margin-right: 0; }
   .pair-table-wrap { max-height: 400px; }
