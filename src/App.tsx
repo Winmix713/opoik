@@ -83,7 +83,7 @@ function csvCell(value: unknown) {
 function exportPairsCSV(report: AuditReport) {
   const header = [
     "archive_commit", "league", "home_team", "away_team", "meetings_n", "valid_ft_n", "valid_ht_n", "missing_ht_n", "valid_second_half_n", "averages_json",
-    "ft_result_distribution_json", "ht_result_distribution_json", "second_half_result_distribution_json", "btts_ft_json", "btts_ht_json", "btts_second_half_json",
+    "ft_result_distribution_json", "ht_result_distribution_json", "second_half_result_distribution_json", "half_with_more_goals_json", "btts_ft_json", "btts_ht_json", "btts_second_half_json",
     "btts_over_under_25_json", "clean_sheets_json", "ft_goal_lines_json", "ht_goal_lines_json", "second_half_goal_lines_json",
     "ft_total_goals_json", "ht_total_goals_json", "second_half_total_goals_json", "home_goals_json", "away_goals_json",
     "ft_exact_scores_json", "ht_exact_scores_json", "htft_outcomes_json", "htft_exact_scores_json",
@@ -114,6 +114,7 @@ function exportPairsCSV(report: AuditReport) {
       serialize(analysis.ftOutcomes),
       serialize(analysis.htOutcomes),
       serialize(analysis.secondHalfOutcomes),
+      serialize(analysis.halfWithMoreGoals),
       serialize(analysis.ftBtts),
       serialize(analysis.htBtts),
       serialize(analysis.secondHalfBtts),
@@ -418,6 +419,7 @@ function PairExplorer({ report, league, setLeague }: {
                 <FrequencyBars title="Végeredmény · hazai / döntetlen / vendég" items={analysis.ftOutcomes} denominator={analysis.validFt} formatKey={resultName} emptyText="Nincs érvényes végeredmény." />
                 <FrequencyBars title="Félidei állás · hazai / döntetlen / vendég" items={analysis.htOutcomes} denominator={analysis.validHt} formatKey={resultName} emptyText="Nincs érvényes félidei eredmény." />
                 <FrequencyBars title="2. félidő gólkülönbsége" items={analysis.secondHalfOutcomes} denominator={analysis.validSecondHalf} formatKey={secondHalfResultName} emptyText="Nincs összehasonlítható HT/FT minta." />
+                <FrequencyBars title="Melyik félidőben volt több gól?" items={analysis.halfWithMoreGoals} denominator={analysis.validSecondHalf} formatKey={(key) => key} emptyText="Nincs összehasonlítható HT/FT minta." />
               </div>
             </section>
 

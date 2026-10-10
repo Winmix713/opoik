@@ -26,6 +26,7 @@ export interface PairAnalysis {
   ftOutcomes: Frequency[];
   htOutcomes: Frequency[];
   secondHalfOutcomes: Frequency[];
+  halfWithMoreGoals: Frequency[];
   ftBtts: Frequency[];
   htBtts: Frequency[];
   secondHalfBtts: Frequency[];
@@ -84,6 +85,7 @@ export function analyzePairMatches(matches: MatchRecord[]): PairAnalysis {
   const ftOutcomeCounts: Counts = new Map();
   const htOutcomeCounts: Counts = new Map();
   const secondHalfOutcomeCounts: Counts = new Map();
+  const halfWithMoreGoalsCounts: Counts = new Map();
   const ftBttsCounts: Counts = new Map();
   const htBttsCounts: Counts = new Map();
   const secondHalfBttsCounts: Counts = new Map();
@@ -160,6 +162,7 @@ export function analyzePairMatches(matches: MatchRecord[]): PairAnalysis {
     add(secondHalfOutcomeCounts, outcome(secondHalfHome, secondHalfAway));
     add(secondHalfBttsCounts, secondHalfHome > 0 && secondHalfAway > 0 ? "Igen" : "Nem");
     add(secondHalfGoalCounts, bucket(secondHalfTotal, 4));
+    add(halfWithMoreGoalsCounts, htTotal > secondHalfTotal ? "1. félidőben több" : htTotal < secondHalfTotal ? "2. félidőben több" : "Ugyanannyi");
   }
 
   const totalFtGoals = ftTotals.reduce((sum, value) => sum + value, 0);
@@ -183,6 +186,7 @@ export function analyzePairMatches(matches: MatchRecord[]): PairAnalysis {
     ftOutcomes: frequencies(ftOutcomeCounts, validFt, ["H", "D", "A"]),
     htOutcomes: frequencies(htOutcomeCounts, validHt, ["H", "D", "A"]),
     secondHalfOutcomes: frequencies(secondHalfOutcomeCounts, validSecondHalf, ["H", "D", "A"]),
+    halfWithMoreGoals: frequencies(halfWithMoreGoalsCounts, validSecondHalf, ["1. félidőben több", "Ugyanannyi", "2. félidőben több"]),
     ftBtts: frequencies(ftBttsCounts, validFt, ["Igen", "Nem"]),
     htBtts: frequencies(htBttsCounts, validHt, ["Igen", "Nem"]),
     secondHalfBtts: frequencies(secondHalfBttsCounts, validSecondHalf, ["Igen", "Nem"]),
