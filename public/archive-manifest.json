@@ -1,0 +1,938 @@
+{
+  "source": "https://github.com/Winmix713/tertpea",
+  "commitSha": "bf019ab7460994c7523cb70518f0e07c5d104c81",
+  "treeSha": "23d2d8c2263df8f537b3a2b7cb76319bc2700d2e",
+  "exportedAt": "2026-09-15T11:48:56.033Z",
+  "schemaVersion": 3,
+  "seasonCount": 103,
+  "expectedByteCount": 92923498,
+  "files": [
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0001_Angol_bajnoksag_1.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0001_Angol_bajnoksag_1.json",
+      "sha": "67c7dc3554fbe4b426194ff88d65ccd1d9f35fc5",
+      "size": 908279,
+      "league": "angol",
+      "seasonIndex": 1,
+      "seasonName": "Angol bajnokság 1"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0002_Angol_bajnoksag_2.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0002_Angol_bajnoksag_2.json",
+      "sha": "0c9d83cc49ace4f0d74800aa1008006a60af2d62",
+      "size": 906132,
+      "league": "angol",
+      "seasonIndex": 2,
+      "seasonName": "Angol bajnokság 2"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0003_Angol_bajnoksag_3.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0003_Angol_bajnoksag_3.json",
+      "sha": "d94ad4dccd3b33266d667a8d72ef2f4b25ea51c5",
+      "size": 905476,
+      "league": "angol",
+      "seasonIndex": 3,
+      "seasonName": "Angol bajnokság 3"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0004_Angol_bajnoksag_4.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0004_Angol_bajnoksag_4.json",
+      "sha": "b3ed0279e8f72f5bcb2204161ea56e949fb0f3c2",
+      "size": 904911,
+      "league": "angol",
+      "seasonIndex": 4,
+      "seasonName": "Angol bajnokság 4"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0005_Angol_bajnoksag_5.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0005_Angol_bajnoksag_5.json",
+      "sha": "ef6593c7b3d2b22698740a2cbc87e3ceb799ba98",
+      "size": 905515,
+      "league": "angol",
+      "seasonIndex": 5,
+      "seasonName": "Angol bajnokság 5"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0006_Angol_bajnoksag_6.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0006_Angol_bajnoksag_6.json",
+      "sha": "ac76122f6fa677d2b189e2b62ad054958a6da651",
+      "size": 904418,
+      "league": "angol",
+      "seasonIndex": 6,
+      "seasonName": "Angol bajnokság 6"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0007_Angol_bajnoksag_7.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0007_Angol_bajnoksag_7.json",
+      "sha": "06ee293ca2ac3658169b54eb477510fb078e78b6",
+      "size": 903879,
+      "league": "angol",
+      "seasonIndex": 7,
+      "seasonName": "Angol bajnokság 7"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0008_Angol_bajnoksag_8.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0008_Angol_bajnoksag_8.json",
+      "sha": "615efb5f9646db393d0a41f520ef6882ce0cf49c",
+      "size": 905273,
+      "league": "angol",
+      "seasonIndex": 8,
+      "seasonName": "Angol bajnokság 8"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0009_Angol_bajnoksag_9.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0009_Angol_bajnoksag_9.json",
+      "sha": "16ef8459525059a3848ff07bdf94c1bc6662486a",
+      "size": 903916,
+      "league": "angol",
+      "seasonIndex": 9,
+      "seasonName": "Angol bajnokság 9"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0010_Angol_bajnoksag_10.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0010_Angol_bajnoksag_10.json",
+      "sha": "db836cd79ac5dcd30428929eb439e63d6ef7c93a",
+      "size": 903925,
+      "league": "angol",
+      "seasonIndex": 10,
+      "seasonName": "Angol bajnokság 10"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0011_Angol_bajnoksag_11.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0011_Angol_bajnoksag_11.json",
+      "sha": "1a583993865a6e8175f8244bbe6f2c49997690e5",
+      "size": 904592,
+      "league": "angol",
+      "seasonIndex": 11,
+      "seasonName": "Angol bajnokság 11"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0012_Angol_bajnoksag_12.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0012_Angol_bajnoksag_12.json",
+      "sha": "09e60298983d877ae5705928e9d0a551fe05cd40",
+      "size": 904217,
+      "league": "angol",
+      "seasonIndex": 12,
+      "seasonName": "Angol bajnokság 12"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0013_Angol_bajnoksag_13.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0013_Angol_bajnoksag_13.json",
+      "sha": "e8420af0ea4a646595f4eae2482ccaad21a5e9b0",
+      "size": 903223,
+      "league": "angol",
+      "seasonIndex": 13,
+      "seasonName": "Angol bajnokság 13"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0014_Angol_bajnoksag_14.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0014_Angol_bajnoksag_14.json",
+      "sha": "d76ff33a5d11f2c91844a3c46cefc2691dafb298",
+      "size": 904167,
+      "league": "angol",
+      "seasonIndex": 14,
+      "seasonName": "Angol bajnokság 14"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0015_Angol_bajnoksag_15.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0015_Angol_bajnoksag_15.json",
+      "sha": "f43ca869a607e13837d261fe6206b15f67118148",
+      "size": 903640,
+      "league": "angol",
+      "seasonIndex": 15,
+      "seasonName": "Angol bajnokság 15"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0016_Angol_bajnoksag_16.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0016_Angol_bajnoksag_16.json",
+      "sha": "b647f2344f8ba0b33ced6fffb8c8faa88cbd712b",
+      "size": 903436,
+      "league": "angol",
+      "seasonIndex": 16,
+      "seasonName": "Angol bajnokság 16"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0017_Angol_bajnoksag_17.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0017_Angol_bajnoksag_17.json",
+      "sha": "4ec6683431e3e5c6ef246d14f12cdd53cf38ee6a",
+      "size": 903483,
+      "league": "angol",
+      "seasonIndex": 17,
+      "seasonName": "Angol bajnokság 17"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0018_Angol_bajnoksag_18.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0018_Angol_bajnoksag_18.json",
+      "sha": "37be92cb5d7c0f8793693b3e2d61cf334d42fe8d",
+      "size": 904420,
+      "league": "angol",
+      "seasonIndex": 18,
+      "seasonName": "Angol bajnokság 18"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0037_Angol_bajnoksag_19.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0037_Angol_bajnoksag_19.json",
+      "sha": "b5a51b71ebb99acdd67da3905449f79009aa705f",
+      "size": 898602,
+      "league": "angol",
+      "seasonIndex": 19,
+      "seasonName": "Angol bajnokság 19"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0038_Angol_bajnoksag_20.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0038_Angol_bajnoksag_20.json",
+      "sha": "03e169f4259157da0b08ade38377a538bb5e29da",
+      "size": 898015,
+      "league": "angol",
+      "seasonIndex": 20,
+      "seasonName": "Angol bajnokság 20"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0039_Angol_bajnoksag_21.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0039_Angol_bajnoksag_21.json",
+      "sha": "ef4573f7ddc771023b0b761fc468fa317040bbb9",
+      "size": 898224,
+      "league": "angol",
+      "seasonIndex": 21,
+      "seasonName": "Angol bajnokság 21"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0040_Angol_bajnoksag_22.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0040_Angol_bajnoksag_22.json",
+      "sha": "1eb5252004e1133c9080993c446132a10eefe8d4",
+      "size": 898431,
+      "league": "angol",
+      "seasonIndex": 22,
+      "seasonName": "Angol bajnokság 22"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0041_Angol_bajnoksag_23.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0041_Angol_bajnoksag_23.json",
+      "sha": "539e0a81d520a5d8e1b8d26c2c15d55d98ae5076",
+      "size": 898558,
+      "league": "angol",
+      "seasonIndex": 23,
+      "seasonName": "Angol bajnokság 23"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0042_Angol_bajnoksag_24.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0042_Angol_bajnoksag_24.json",
+      "sha": "91b4ce14884ae78f937ab8ffd4affbeb7014f559",
+      "size": 898868,
+      "league": "angol",
+      "seasonIndex": 24,
+      "seasonName": "Angol bajnokság 24"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0043_Angol_bajnoksag_25.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0043_Angol_bajnoksag_25.json",
+      "sha": "99e1f10e8382d3c4b66ed365c1b6189b2d946e80",
+      "size": 899030,
+      "league": "angol",
+      "seasonIndex": 25,
+      "seasonName": "Angol bajnokság 25"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0044_Angol_bajnoksag_26.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0044_Angol_bajnoksag_26.json",
+      "sha": "aa633f0f7895a5220b240c37a820e0279ecede04",
+      "size": 899415,
+      "league": "angol",
+      "seasonIndex": 26,
+      "seasonName": "Angol bajnokság 26"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0045_Angol_bajnoksag_27.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0045_Angol_bajnoksag_27.json",
+      "sha": "a26ab333efe1723c5db82ec6b1682e4ffa0381dc",
+      "size": 899042,
+      "league": "angol",
+      "seasonIndex": 27,
+      "seasonName": "Angol bajnokság 27"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0046_Angol_bajnoksag_28.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0046_Angol_bajnoksag_28.json",
+      "sha": "263aa170b78b4262a75d7af249174c67d39ad9a9",
+      "size": 898400,
+      "league": "angol",
+      "seasonIndex": 28,
+      "seasonName": "Angol bajnokság 28"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0047_Angol_bajnoksag_29.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0047_Angol_bajnoksag_29.json",
+      "sha": "0cceaaaa78cd0bf5c0f09d04e45ea64981b2d776",
+      "size": 898829,
+      "league": "angol",
+      "seasonIndex": 29,
+      "seasonName": "Angol bajnokság 29"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0048_Angol_bajnoksag_30.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0048_Angol_bajnoksag_30.json",
+      "sha": "515643c4567c351af69667a075ca0b6efc1f4927",
+      "size": 899168,
+      "league": "angol",
+      "seasonIndex": 30,
+      "seasonName": "Angol bajnokság 30"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0049_Angol_bajnoksag_31.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0049_Angol_bajnoksag_31.json",
+      "sha": "f2dda751ef933af7b77b0128d7e7c0ae381ea4e9",
+      "size": 899931,
+      "league": "angol",
+      "seasonIndex": 31,
+      "seasonName": "Angol bajnokság 31"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0050_Angol_bajnoksag_32.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0050_Angol_bajnoksag_32.json",
+      "sha": "71509f2d29e8fb22baaa4774af0e1a69e4427ff5",
+      "size": 900200,
+      "league": "angol",
+      "seasonIndex": 32,
+      "seasonName": "Angol bajnokság 32"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0051_Angol_bajnoksag_33.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0051_Angol_bajnoksag_33.json",
+      "sha": "254a54558e94d7868c4c4f9b6a0d0dd9e2e4e3aa",
+      "size": 898985,
+      "league": "angol",
+      "seasonIndex": 33,
+      "seasonName": "Angol bajnokság 33"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0052_Angol_bajnoksag_34.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0052_Angol_bajnoksag_34.json",
+      "sha": "d4d917e038c395cfaae35ed10297bbfb3aee0b82",
+      "size": 899146,
+      "league": "angol",
+      "seasonIndex": 34,
+      "seasonName": "Angol bajnokság 34"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0053_Angol_bajnoksag_35.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0053_Angol_bajnoksag_35.json",
+      "sha": "88766c48b6120b6c9b128ad3bf38c08886cdd95a",
+      "size": 898981,
+      "league": "angol",
+      "seasonIndex": 35,
+      "seasonName": "Angol bajnokság 35"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0054_Angol_bajnoksag_36.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0054_Angol_bajnoksag_36.json",
+      "sha": "0abf735d8fb49c1d70111aec070e69cb321cf8ee",
+      "size": 899169,
+      "league": "angol",
+      "seasonIndex": 36,
+      "seasonName": "Angol bajnokság 36"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0055_Angol_bajnoksag_37.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0055_Angol_bajnoksag_37.json",
+      "sha": "5a83f9f64aebd8566bc589a3f4bf5d3f6c916101",
+      "size": 900129,
+      "league": "angol",
+      "seasonIndex": 37,
+      "seasonName": "Angol bajnokság 37"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0056_Angol_bajnoksag_38.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0056_Angol_bajnoksag_38.json",
+      "sha": "0a54862b662e8a8a6068dcb2dd83dee1b16eda2c",
+      "size": 898166,
+      "league": "angol",
+      "seasonIndex": 38,
+      "seasonName": "Angol bajnokság 38"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0057_Angol_bajnoksag_39.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0057_Angol_bajnoksag_39.json",
+      "sha": "98035e8afc2295322494021cf4cf1940c44c571b",
+      "size": 899814,
+      "league": "angol",
+      "seasonIndex": 39,
+      "seasonName": "Angol bajnokság 39"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0058_Angol_bajnoksag_40.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0058_Angol_bajnoksag_40.json",
+      "sha": "6cfed2b552a84956c080e5d3d7acc10afbf58dc8",
+      "size": 899395,
+      "league": "angol",
+      "seasonIndex": 40,
+      "seasonName": "Angol bajnokság 40"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0059_Angol_bajnoksag_41.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0059_Angol_bajnoksag_41.json",
+      "sha": "4fa51430f7703bd76abf38346641009f100a3ec6",
+      "size": 899489,
+      "league": "angol",
+      "seasonIndex": 41,
+      "seasonName": "Angol bajnokság 41"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0060_Angol_bajnoksag_42.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0060_Angol_bajnoksag_42.json",
+      "sha": "615ffac25d36c952926c54b703cf246610de39f3",
+      "size": 904598,
+      "league": "angol",
+      "seasonIndex": 42,
+      "seasonName": "Angol bajnokság 42"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0061_Angol_bajnoksag_43.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0061_Angol_bajnoksag_43.json",
+      "sha": "789ddb2752763f56d98cd777ec6eb385cdb37f11",
+      "size": 902115,
+      "league": "angol",
+      "seasonIndex": 43,
+      "seasonName": "Angol bajnokság 43"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0062_Angol_bajnoksag_44.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0062_Angol_bajnoksag_44.json",
+      "sha": "23e7b126f05015b6f1628285f65f4275cda1126d",
+      "size": 902675,
+      "league": "angol",
+      "seasonIndex": 44,
+      "seasonName": "Angol bajnokság 44"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0063_Angol_bajnoksag_45.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0063_Angol_bajnoksag_45.json",
+      "sha": "d4764ef413623430c5a35acd7651b59195ebe8d8",
+      "size": 902154,
+      "league": "angol",
+      "seasonIndex": 45,
+      "seasonName": "Angol bajnokság 45"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0064_Angol_bajnoksag_46.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0064_Angol_bajnoksag_46.json",
+      "sha": "7263df44863f71848f713adacc044a996c830a8e",
+      "size": 903637,
+      "league": "angol",
+      "seasonIndex": 46,
+      "seasonName": "Angol bajnokság 46"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0065_Angol_bajnoksag_47.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0065_Angol_bajnoksag_47.json",
+      "sha": "24edad598bbccf056a3c0349389d127986558b80",
+      "size": 903351,
+      "league": "angol",
+      "seasonIndex": 47,
+      "seasonName": "Angol bajnokság 47"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0066_Angol_bajnoksag_48.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0066_Angol_bajnoksag_48.json",
+      "sha": "3789bf6f942e024c18ae99458eba8f4f959f783e",
+      "size": 903556,
+      "league": "angol",
+      "seasonIndex": 48,
+      "seasonName": "Angol bajnokság 48"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0067_Angol_bajnoksag_49.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0067_Angol_bajnoksag_49.json",
+      "sha": "dcdfac17e26fe8a09c681b0932721c689661d9f2",
+      "size": 902798,
+      "league": "angol",
+      "seasonIndex": 49,
+      "seasonName": "Angol bajnokság 49"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0068_Angol_bajnoksag_50.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0068_Angol_bajnoksag_50.json",
+      "sha": "974b6f44ff85a0c8811c67115a8a913b1cb19ee9",
+      "size": 901329,
+      "league": "angol",
+      "seasonIndex": 50,
+      "seasonName": "Angol bajnokság 50"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0069_Angol_bajnoksag_51.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0069_Angol_bajnoksag_51.json",
+      "sha": "cf4aa05390825bd742947bf058a172600c8699ce",
+      "size": 901678,
+      "league": "angol",
+      "seasonIndex": 51,
+      "seasonName": "Angol bajnokság 51"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0070_Angol_bajnoksag_52.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0070_Angol_bajnoksag_52.json",
+      "sha": "dcbd5a42f408f62bd1bb0fb44d1ef36a7f0ec2d2",
+      "size": 902430,
+      "league": "angol",
+      "seasonIndex": 52,
+      "seasonName": "Angol bajnokság 52"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0071_Angol_bajnoksag_53.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0071_Angol_bajnoksag_53.json",
+      "sha": "700191a2139892aba2f65bd21ade1b2c25816b16",
+      "size": 903905,
+      "league": "angol",
+      "seasonIndex": 53,
+      "seasonName": "Angol bajnokság 53"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0072_Angol_bajnoksag_54.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0072_Angol_bajnoksag_54.json",
+      "sha": "2831da9d442d71888110e5d7d067b2cd56355e0c",
+      "size": 903303,
+      "league": "angol",
+      "seasonIndex": 54,
+      "seasonName": "Angol bajnokság 54"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0073_Angol_bajnoksag_55.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0073_Angol_bajnoksag_55.json",
+      "sha": "3153f10b4f405fa13b2012c373aebbb1d54bc2d3",
+      "size": 902690,
+      "league": "angol",
+      "seasonIndex": 55,
+      "seasonName": "Angol bajnokság 55"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0074_Angol_bajnoksag_56.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0074_Angol_bajnoksag_56.json",
+      "sha": "214a72ed1fe1d16b4cab2c4346cab9a7fb4c2fd0",
+      "size": 903305,
+      "league": "angol",
+      "seasonIndex": 56,
+      "seasonName": "Angol bajnokság 56"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0075_Angol_bajnoksag_57.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0075_Angol_bajnoksag_57.json",
+      "sha": "cfadeed1c9ddc28c62f35c33fa85c62b4cf7afa6",
+      "size": 902043,
+      "league": "angol",
+      "seasonIndex": 57,
+      "seasonName": "Angol bajnokság 57"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0076_Angol_bajnoksag_58.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0076_Angol_bajnoksag_58.json",
+      "sha": "ad5e11edcfa165fc4c5e9627c51962cd51b7f23a",
+      "size": 902875,
+      "league": "angol",
+      "seasonIndex": 58,
+      "seasonName": "Angol bajnokság 58"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0077_Angol_bajnoksag_59.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0077_Angol_bajnoksag_59.json",
+      "sha": "319b9293a3a34425066782b6481d95d99afaa3c1",
+      "size": 902083,
+      "league": "angol",
+      "seasonIndex": 59,
+      "seasonName": "Angol bajnokság 59"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0078_Angol_bajnoksag_60.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0078_Angol_bajnoksag_60.json",
+      "sha": "6cebed0c6662d056f4a39cd51c8315b9aa5c9883",
+      "size": 902885,
+      "league": "angol",
+      "seasonIndex": 60,
+      "seasonName": "Angol bajnokság 60"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0079_Angol_bajnoksag_61.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0079_Angol_bajnoksag_61.json",
+      "sha": "3b51fc17fe9d78c3c6f789b39eba52a01d72a9eb",
+      "size": 902574,
+      "league": "angol",
+      "seasonIndex": 61,
+      "seasonName": "Angol bajnokság 61"
+    },
+    {
+      "path": "08_eredeti/szezonok/angol_ad7f94aa67/s0080_Angol_bajnoksag_62.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/angol_ad7f94aa67/s0080_Angol_bajnoksag_62.json",
+      "sha": "54773cb782692ba38efc8fff0f03e4c1bbdf42c6",
+      "size": 902356,
+      "league": "angol",
+      "seasonIndex": 62,
+      "seasonName": "Angol bajnokság 62"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0019_Spanyol_bajnoksag_1.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0019_Spanyol_bajnoksag_1.json",
+      "sha": "250e0e7226ad65a1039df21f02a412393ffc382a",
+      "size": 906434,
+      "league": "spanyol",
+      "seasonIndex": 1,
+      "seasonName": "Spanyol bajnokság 1"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0020_Spanyol_bajnoksag_2.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0020_Spanyol_bajnoksag_2.json",
+      "sha": "eb5b24b1937a717748796673ae5b130ec357f757",
+      "size": 905138,
+      "league": "spanyol",
+      "seasonIndex": 2,
+      "seasonName": "Spanyol bajnokság 2"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0021_Spanyol_bajnoksag_3.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0021_Spanyol_bajnoksag_3.json",
+      "sha": "4c817497382f925b8721b908d04b36310ec84f0e",
+      "size": 904588,
+      "league": "spanyol",
+      "seasonIndex": 3,
+      "seasonName": "Spanyol bajnokság 3"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0022_Spanyol_bajnoksag_4.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0022_Spanyol_bajnoksag_4.json",
+      "sha": "6262608e8dc2665f0ab6ff3bb13827815331634b",
+      "size": 905814,
+      "league": "spanyol",
+      "seasonIndex": 4,
+      "seasonName": "Spanyol bajnokság 4"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0023_Spanyol_bajnoksag_5.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0023_Spanyol_bajnoksag_5.json",
+      "sha": "b615e5bf341a114606f355c45a25076aa8329100",
+      "size": 904196,
+      "league": "spanyol",
+      "seasonIndex": 5,
+      "seasonName": "Spanyol bajnokság 5"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0024_Spanyol_bajnoksag_6.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0024_Spanyol_bajnoksag_6.json",
+      "sha": "d08c0523084ab9d43bdcae4ad2cc7188d1a4ccc2",
+      "size": 903006,
+      "league": "spanyol",
+      "seasonIndex": 6,
+      "seasonName": "Spanyol bajnokság 6"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0025_Spanyol_bajnoksag_7.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0025_Spanyol_bajnoksag_7.json",
+      "sha": "b4c6169ed047084353a187899dde79db7d5fa283",
+      "size": 905137,
+      "league": "spanyol",
+      "seasonIndex": 7,
+      "seasonName": "Spanyol bajnokság 7"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0026_Spanyol_bajnoksag_8.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0026_Spanyol_bajnoksag_8.json",
+      "sha": "18b66e6606d510450a054a099fd336006b9d35d7",
+      "size": 904499,
+      "league": "spanyol",
+      "seasonIndex": 8,
+      "seasonName": "Spanyol bajnokság 8"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0027_Spanyol_bajnoksag_9.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0027_Spanyol_bajnoksag_9.json",
+      "sha": "a605d4eb0dd80e134b659fff2c2127e5267da851",
+      "size": 904187,
+      "league": "spanyol",
+      "seasonIndex": 9,
+      "seasonName": "Spanyol bajnokság 9"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0028_Spanyol_bajnoksag_10.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0028_Spanyol_bajnoksag_10.json",
+      "sha": "d29f56029a9afc80a00159a9371189f1f2956ae5",
+      "size": 903017,
+      "league": "spanyol",
+      "seasonIndex": 10,
+      "seasonName": "Spanyol bajnokság 10"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0029_Spanyol_bajnoksag_11.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0029_Spanyol_bajnoksag_11.json",
+      "sha": "492b3dd35afc5d3da2c539656f08d094fc512876",
+      "size": 903287,
+      "league": "spanyol",
+      "seasonIndex": 11,
+      "seasonName": "Spanyol bajnokság 11"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0030_Spanyol_bajnoksag_12.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0030_Spanyol_bajnoksag_12.json",
+      "sha": "8dc3e1b5b824046666a58654bdf4bf40953f2729",
+      "size": 903647,
+      "league": "spanyol",
+      "seasonIndex": 12,
+      "seasonName": "Spanyol bajnokság 12"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0031_Spanyol_bajnoksag_13.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0031_Spanyol_bajnoksag_13.json",
+      "sha": "e778622b5a12429f295d0c20435f3dc860659014",
+      "size": 903700,
+      "league": "spanyol",
+      "seasonIndex": 13,
+      "seasonName": "Spanyol bajnokság 13"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0032_Spanyol_bajnoksag_14.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0032_Spanyol_bajnoksag_14.json",
+      "sha": "219d7709b8f880346cbaae608568d605e4425d31",
+      "size": 903704,
+      "league": "spanyol",
+      "seasonIndex": 14,
+      "seasonName": "Spanyol bajnokság 14"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0033_Spanyol_bajnoksag_15.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0033_Spanyol_bajnoksag_15.json",
+      "sha": "7792b6b952ec068f0a5dac4cfe2a6f1a4e7342f3",
+      "size": 903159,
+      "league": "spanyol",
+      "seasonIndex": 15,
+      "seasonName": "Spanyol bajnokság 15"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0034_Spanyol_bajnoksag_16.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0034_Spanyol_bajnoksag_16.json",
+      "sha": "95e4559dda99d12ec018e74b8b44e0c8fff83b69",
+      "size": 903359,
+      "league": "spanyol",
+      "seasonIndex": 16,
+      "seasonName": "Spanyol bajnokság 16"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0035_Spanyol_bajnoksag_17.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0035_Spanyol_bajnoksag_17.json",
+      "sha": "1a7ac33468f9b27d76468778d59c6eb2f7d1db30",
+      "size": 903788,
+      "league": "spanyol",
+      "seasonIndex": 17,
+      "seasonName": "Spanyol bajnokság 17"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0036_Spanyol_bajnoksag_18.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0036_Spanyol_bajnoksag_18.json",
+      "sha": "c443b8421f6efdc5ed167ce9fa0e24332dfe566e",
+      "size": 902196,
+      "league": "spanyol",
+      "seasonIndex": 18,
+      "seasonName": "Spanyol bajnokság 18"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0081_Spanyol_bajnoksag_19.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0081_Spanyol_bajnoksag_19.json",
+      "sha": "b43d86b6cb2d3a6d62888a63bc0933e54f2e364e",
+      "size": 901124,
+      "league": "spanyol",
+      "seasonIndex": 19,
+      "seasonName": "Spanyol bajnokság 19"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0082_Spanyol_bajnoksag_20.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0082_Spanyol_bajnoksag_20.json",
+      "sha": "0c6d09ab8ebbae5a70649156a5928eb35edcfef4",
+      "size": 900930,
+      "league": "spanyol",
+      "seasonIndex": 20,
+      "seasonName": "Spanyol bajnokság 20"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0083_Spanyol_bajnoksag_21.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0083_Spanyol_bajnoksag_21.json",
+      "sha": "a0aa3ebb6421f1c874ebe2aa8528cf4650f2022e",
+      "size": 901000,
+      "league": "spanyol",
+      "seasonIndex": 21,
+      "seasonName": "Spanyol bajnokság 21"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0084_Spanyol_bajnoksag_22.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0084_Spanyol_bajnoksag_22.json",
+      "sha": "0b23f617f0fb4743117a77940cf602dc38c9515b",
+      "size": 901627,
+      "league": "spanyol",
+      "seasonIndex": 22,
+      "seasonName": "Spanyol bajnokság 22"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0085_Spanyol_bajnoksag_23.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0085_Spanyol_bajnoksag_23.json",
+      "sha": "dae1eeab76e7590df09e71b06624ad26d0801f8e",
+      "size": 901821,
+      "league": "spanyol",
+      "seasonIndex": 23,
+      "seasonName": "Spanyol bajnokság 23"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0086_Spanyol_bajnoksag_24.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0086_Spanyol_bajnoksag_24.json",
+      "sha": "16da3af1f8e2e21413a3833cd6154645eacbb072",
+      "size": 901445,
+      "league": "spanyol",
+      "seasonIndex": 24,
+      "seasonName": "Spanyol bajnokság 24"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0087_Spanyol_bajnoksag_25.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0087_Spanyol_bajnoksag_25.json",
+      "sha": "55a71292f2f78ca96de54e2afa6eb08314dade1c",
+      "size": 902426,
+      "league": "spanyol",
+      "seasonIndex": 25,
+      "seasonName": "Spanyol bajnokság 25"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0088_Spanyol_bajnoksag_26.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0088_Spanyol_bajnoksag_26.json",
+      "sha": "5b9485844dec2fbdf71bed7761462503d2962ab7",
+      "size": 901012,
+      "league": "spanyol",
+      "seasonIndex": 26,
+      "seasonName": "Spanyol bajnokság 26"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0089_Spanyol_bajnoksag_27.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0089_Spanyol_bajnoksag_27.json",
+      "sha": "8fd0f270a5563342a24569a59fde4a98637b0313",
+      "size": 900872,
+      "league": "spanyol",
+      "seasonIndex": 27,
+      "seasonName": "Spanyol bajnokság 27"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0090_Spanyol_bajnoksag_28.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0090_Spanyol_bajnoksag_28.json",
+      "sha": "976e24182efbe8ca46b6e860b39816bba212dfd0",
+      "size": 900958,
+      "league": "spanyol",
+      "seasonIndex": 28,
+      "seasonName": "Spanyol bajnokság 28"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0091_Spanyol_bajnoksag_29.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0091_Spanyol_bajnoksag_29.json",
+      "sha": "8fce17e7143723eda7d54c7b79ea9d48dc00b6e0",
+      "size": 901218,
+      "league": "spanyol",
+      "seasonIndex": 29,
+      "seasonName": "Spanyol bajnokság 29"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0092_Spanyol_bajnoksag_30.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0092_Spanyol_bajnoksag_30.json",
+      "sha": "5b8e03e69201ab19692535eea3edf52ddb399de2",
+      "size": 901436,
+      "league": "spanyol",
+      "seasonIndex": 30,
+      "seasonName": "Spanyol bajnokság 30"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0093_Spanyol_bajnoksag_31.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0093_Spanyol_bajnoksag_31.json",
+      "sha": "0a48578c7a7455d8ed255aae0e46d1caea8ca06f",
+      "size": 900812,
+      "league": "spanyol",
+      "seasonIndex": 31,
+      "seasonName": "Spanyol bajnokság 31"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0094_Spanyol_bajnoksag_32.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0094_Spanyol_bajnoksag_32.json",
+      "sha": "ab3b88833d006c19d76b227fab97de25336738a9",
+      "size": 900825,
+      "league": "spanyol",
+      "seasonIndex": 32,
+      "seasonName": "Spanyol bajnokság 32"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0095_Spanyol_bajnoksag_33.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0095_Spanyol_bajnoksag_33.json",
+      "sha": "c47ef8637bad9aac1ff833423e790e4ff17ec76b",
+      "size": 901621,
+      "league": "spanyol",
+      "seasonIndex": 33,
+      "seasonName": "Spanyol bajnokság 33"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0096_Spanyol_bajnoksag_34.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0096_Spanyol_bajnoksag_34.json",
+      "sha": "4f20f025a7b72e4deeac9fc49fcf92f8457991bb",
+      "size": 901899,
+      "league": "spanyol",
+      "seasonIndex": 34,
+      "seasonName": "Spanyol bajnokság 34"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0097_Spanyol_bajnoksag_35.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0097_Spanyol_bajnoksag_35.json",
+      "sha": "a087512384e92a06811f47bb4fbfbac2cf89eafe",
+      "size": 901804,
+      "league": "spanyol",
+      "seasonIndex": 35,
+      "seasonName": "Spanyol bajnokság 35"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0098_Spanyol_bajnoksag_36.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0098_Spanyol_bajnoksag_36.json",
+      "sha": "fdbc85230b3147fcb654f7dae143df9e93ad8ed9",
+      "size": 901044,
+      "league": "spanyol",
+      "seasonIndex": 36,
+      "seasonName": "Spanyol bajnokság 36"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0099_Spanyol_bajnoksag_37.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0099_Spanyol_bajnoksag_37.json",
+      "sha": "3fd1d5ba0b55586bdba5994bab8add754951a8b3",
+      "size": 902624,
+      "league": "spanyol",
+      "seasonIndex": 37,
+      "seasonName": "Spanyol bajnokság 37"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0100_Spanyol_bajnoksag_38.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0100_Spanyol_bajnoksag_38.json",
+      "sha": "b55dccc9b0f7ff556392752beb2fdba1967de6e6",
+      "size": 902244,
+      "league": "spanyol",
+      "seasonIndex": 38,
+      "seasonName": "Spanyol bajnokság 38"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0101_Spanyol_bajnoksag_39.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0101_Spanyol_bajnoksag_39.json",
+      "sha": "4aef7ee3a84fb2af5b3e93b7e4afb2d5545d8390",
+      "size": 900678,
+      "league": "spanyol",
+      "seasonIndex": 39,
+      "seasonName": "Spanyol bajnokság 39"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0102_Spanyol_bajnoksag_40.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0102_Spanyol_bajnoksag_40.json",
+      "sha": "b696b0433bdb0c83cc6cf5609984459e76f48091",
+      "size": 900298,
+      "league": "spanyol",
+      "seasonIndex": 40,
+      "seasonName": "Spanyol bajnokság 40"
+    },
+    {
+      "path": "08_eredeti/szezonok/spanyol_85883d77d1/s0103_Spanyol_bajnoksag_41.json",
+      "url": "https://raw.githubusercontent.com/Winmix713/tertpea/bf019ab7460994c7523cb70518f0e07c5d104c81/08_eredeti/szezonok/spanyol_85883d77d1/s0103_Spanyol_bajnoksag_41.json",
+      "sha": "8d81d75912340e73ac2fbc72736e9c02d47e55f2",
+      "size": 901695,
+      "league": "spanyol",
+      "seasonIndex": 41,
+      "seasonName": "Spanyol bajnokság 41"
+    }
+  ]
+}

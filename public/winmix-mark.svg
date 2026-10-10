@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title">
+  <title id="title">Winmix Historical Lab</title>
+  <rect width="320" height="320" rx="72" fill="#0b110d"/>
+  <path d="M48 83h42l30 100 40-83 40 83 30-100h42l-55 154h-32l-25-51-25 51h-32L48 83Z" fill="#ceff3a"/>
+  <path d="M160 33v26M55 260h210" fill="none" stroke="#ceff3a" stroke-linecap="round" stroke-width="10" opacity=".72"/>
+</svg>
